@@ -3,172 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Brota - Lajeado</title>
+    <title>Projeto Brota | Lajeado Resiliente</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #F8F9FA;
+            --bg-accent: #E9ECEF;
+            --text-dark: #212529;
+            --text-light: #495057;
+            --brand-green: #2a623d;
+            --brand-green-light: #3c8a5a;
+            --brand-highlight: #6a994e;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F9F7F3;
-            color: #3D3D3D;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .section {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            padding: 2rem;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
         }
-        .fade-in {
+        .animated-element {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .hero-title {
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+        @keyframes text-focus-in {
+            0% { filter: blur(12px); opacity: 0; }
+            100% { filter: blur(0px); opacity: 1; }
+        }
         .stat-card {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid #EAEAEA;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
+            background-color: #FFFFFF;
+            border: 1px solid #DEE2E6;
+            border-radius: 1rem;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        .mockup-container {
+            perspective: 1500px;
         }
         .mockup-screen {
-            background-color: #ffffff;
-            border-radius: 1.5rem;
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border-radius: 2rem;
             padding: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 8px solid #3D3D3D;
-            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border: 10px solid #343A40;
+            transform: rotateX(10deg) rotateY(-15deg);
+            transition: transform 0.5s ease;
         }
-        .mockup-header {
+        .mockup-container:hover .mockup-screen {
+            transform: rotateX(0) rotateY(0);
+        }
+        .icon-feature {
+            background-color: var(--brand-green-light);
+            color: white;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            padding-bottom: 0.5rem;
-            position: relative;
         }
-        .mockup-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 4px;
-            background-color: #3D3D3D;
-            border-radius: 2px;
+        .final-quote {
+            text-shadow: 0px 2px 15px rgba(0,0,0,0.3);
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- SLIDE 1: TÍTULO -->
-    <section id="slide1" class="section bg-cover bg-center" style="background-image: linear-gradient(rgba(249, 247, 243, 0.8), rgba(249, 247, 243, 1)), url('https://placehold.co/1200x800/A0BCA4/FFFFFF?text=Lajeado');">
+    <section id="slide1" class="section bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0) 50%), url('https://placehold.co/1920x1080/ADC1A9/FFFFFF?text=Paisagem+de+Lajeado');">
         <div class="text-center">
-            <h1 class="text-7xl md:text-9xl font-extrabold text-[#2C5F2D]" style="letter-spacing: -0.05em;">
+            <h1 class="hero-title text-7xl md:text-9xl font-black text-[var(--brand-green)]" style="letter-spacing: -0.06em;">
                 Brota
             </h1>
-            <p class="mt-4 text-xl md:text-2xl text-gray-700">Transformando espaços verdes em uma rede de resiliência.</p>
+            <p class="mt-4 text-xl md:text-2xl text-[var(--text-light)] animated-element" style="transition-delay: 0.5s;">A semente de uma Lajeado mais forte e inteligente.</p>
         </div>
     </section>
 
     <!-- SLIDE 2: O PROBLEMA -->
     <section id="slide2" class="section">
-        <div class="text-center max-w-4xl fade-in">
-            <h2 class="text-sm font-bold uppercase tracking-widest text-[#6B8E23]">O Desafio</h2>
-            <p class="mt-4 text-3xl md:text-5xl font-bold text-gray-800">Lajeado se reconstrói. Mas como garantir um futuro mais seguro?</p>
-            <p class="mt-6 text-lg text-gray-600">Após a enchente, nossos espaços verdes se tornaram mais que estética: são infraestrutura vital para a drenagem, biodiversidade e o bem-estar da nossa comunidade. O programa de adoção é um ótimo começo, mas como podemos torná-lo mais inteligente?</p>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="stat-card">
-                    <p class="text-4xl font-bold text-[#2C5F2D]">+5.000</p>
-                    <p class="text-gray-600">Residências diretamente atingidas</p>
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animated-element">
+                    <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">O Desafio</h2>
+                    <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Como transformar a reconstrução em resiliência?</p>
+                    <p class="mt-6 text-lg text-[var(--text-light)]">A tragédia revelou uma verdade: nossos espaços verdes são a primeira linha de defesa. O programa de adoção de praças é o alicerce, mas para construir um futuro seguro, precisamos de mais que boas intenções. Precisamos de inteligência.</p>
                 </div>
-                <div class="stat-card">
-                    <p class="text-4xl font-bold text-[#2C5F2D]">40%</p>
-                    <p class="text-gray-600">Do comércio local severamente afetado</p>
-                </div>
-                <div class="stat-card">
-                    <p class="text-4xl font-bold text-[#2C5F2D]">1ª</p>
-                    <p class="text-gray-600">Prioridade: Resiliência Climática</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 animated-element" style="transition-delay: 0.2s;">
+                    <div class="stat-card">
+                        <p class="text-5xl font-bold text-[var(--brand-green)]" data-target="5000">0+</p>
+                        <p class="text-[var(--text-light)] mt-2">Residências atingidas</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-5xl font-bold text-[var(--brand-green)]" data-target="40">0%</p>
+                        <p class="text-[var(--text-light)] mt-2">Do comércio impactado</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SLIDE 3: A SOLUÇÃO -->
-    <section id="slide3" class="section bg-[#EAF2E3]">
-        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in">
-            <div class="text-left">
-                <h2 class="text-sm font-bold uppercase tracking-widest text-[#6B8E23]">A Solução</h2>
-                <p class="mt-4 text-3xl md:text-5xl font-bold text-gray-800">Uma plataforma que gamifica a zeladoria e gera dados para a cidade.</p>
-                <p class="mt-6 text-lg text-gray-600">Cada praça adotada ganha um perfil digital e um totem com QR Code. Cidadãos, os "Guardiões", cumprem missões pelo app, transformando o cuidado em uma fonte de dados valiosos sobre a cidade.</p>
-                <ul class="mt-6 space-y-4">
-                    <li class="flex items-start"><span class="text-xl text-[#2C5F2D] mr-3">✓</span> <span><strong class="font-semibold">Missões Gamificadas:</strong> Reporte sobre drenagem, biodiversidade e uso do espaço.</span></li>
-                    <li class="flex items-start"><span class="text-xl text-[#2C5F2D] mr-3">✓</span> <span><strong class="font-semibold">Totens Interativos:</strong> Qualquer pessoa pode escanear, conhecer o guardião e reportar problemas.</span></li>
-                    <li class="flex items-start"><span class="text-xl text-[#2C5F2D] mr-3">✓</span> <span><strong class="font-semibold">Mapa Vivo da Cidade:</strong> Visualize a "saúde" dos espaços verdes em tempo real.</span></li>
-                </ul>
-            </div>
-            <div class="mockup-screen">
-                <div class="mockup-header"></div>
-                <div class="p-4">
-                    <div class="text-center mb-4">
-                        <img src="https://placehold.co/80x80/2C5F2D/FFFFFF?text=Brota" class="mx-auto rounded-full mb-2" alt="Logo Brota">
-                        <h3 class="font-bold text-lg">Praça da Matriz</h3>
-                        <p class="text-sm text-gray-500">Guardião: Família Silva</p>
-                    </div>
-                    <div class="bg-green-100 text-green-800 text-center p-2 rounded-lg mb-4">
-                        <p class="font-bold text-lg">Score de Saúde: 8.7/10</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-2">Suas Missões:</h4>
-                        <div class="space-y-2">
-                            <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center"><span>💧 Reportar Drenagem Pós-Chuva</span><span class="text-green-600">✔</span></div>
-                            <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center"><span>🐦 Registrar 2 Espécies de Pássaros</span><span class="text-yellow-500">...</span></div>
-                            <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center"><span>🗑️ Checar Lixeiras</span><span class="text-gray-400">?</span></div>
+    <section id="slide3" class="section bg-[var(--bg-accent)]">
+        <div class="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="mockup-container animated-element">
+                <div class="mockup-screen">
+                    <div class="bg-white rounded-xl p-4">
+                        <div class="text-center mb-4">
+                            <img src="https://placehold.co/80x80/2a623d/FFFFFF?text=B" class="mx-auto rounded-full mb-2 shadow-md" alt="Logo Brota">
+                            <h3 class="font-bold text-xl text-gray-800">Parque do Engenho</h3>
+                            <p class="text-sm text-gray-500">Guardiã: Univates</p>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-center p-3 rounded-lg mb-4">
+                            <p class="font-bold text-lg">Índice de Vitalidade: 9.2/10</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-700">Missões Ativas:</h4>
+                            <div class="space-y-3">
+                                <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center text-sm"><span>💧 Análise de Drenagem</span><span class="font-bold text-emerald-600">CONCLUÍDA</span></div>
+                                <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center text-sm"><span>🐦 Censo de Aves Nativas</span><span class="font-bold text-amber-600">EM ANDAMENTO</span></div>
+                                <div class="bg-gray-100 p-3 rounded-lg flex justify-between items-center text-sm"><span>🚮 Inspeção de Resíduos</span><span class="font-bold text-gray-500">PENDENTE</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="animated-element" style="transition-delay: 0.2s;">
+                <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">A Solução</h2>
+                <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Brota: A cidade como um organismo vivo.</p>
+                <p class="mt-6 text-lg text-[var(--text-light)]">Uma plataforma digital que transforma cidadãos em "cientistas cívicos". Através de um aplicativo gamificado, a zeladoria se converte em uma poderosa fonte de dados, criando um mapa dinâmico da saúde e dos riscos da nossa cidade.</p>
             </div>
         </div>
     </section>
 
     <!-- SLIDE 4: PROPOSTA DE VALOR -->
     <section id="slide4" class="section">
-        <div class="text-center max-w-4xl fade-in">
-            <h2 class="text-sm font-bold uppercase tracking-widest text-[#6B8E23]">Proposta de Valor</h2>
-            <p class="mt-4 text-3xl md:text-5xl font-bold text-gray-800">De zeladoria passiva a uma rede de sensores vivos.</p>
-            <p class="mt-6 text-lg text-gray-600">A disrupção do Brota não está em cuidar de praças. Está em transformar cada praça em um sensor ambiental e social de baixíssimo custo. Nós não geramos despesa, geramos <strong class="text-[#2C5F2D]">inteligência urbana</strong>. O cidadão deixa de ser um espectador e se torna um cientista cidadão, co-criador de uma cidade mais resiliente.</p>
+        <div class="text-center max-w-4xl animated-element">
+            <div class="icon-feature mx-auto mb-6">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12c0-5.25-4.25-9.5-9.5-9.5S2.5 6.75 2.5 12s4.25 9.5 9.5 9.5"/><path d="M12 21.5c-3.14-.14-5.5-2.82-5.5-5.96 0-3.3 2.69-5.98 6-5.98s6 2.68 6 5.98c0 3.14-2.36 5.82-5.5 5.96"/><path d="M12 2.5C8.86 2.64 6.5 5.32 6.5 8.46c0 3.3 2.69 5.98 6 5.98s6-2.68 6-5.98C18.5 5.32 16.14 2.64 13 2.5"/><path d="M2.5 12c5.25 0 9.5 4.25 9.5 9.5M21.5 12c-5.25 0-9.5-4.25-9.5-9.5"/></svg>
+            </div>
+            <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Proposta de Valor</h2>
+            <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">De ilhas de cuidado a uma rede de inteligência.</p>
+            <p class="mt-6 text-lg text-[var(--text-light)]">Nossa inovação não é o cuidado em si, mas a <strong class="text-[var(--text-dark)]">conexão</strong>. Brota transforma cada praça em um nó de uma rede neural urbana, onde cada dado reportado – sobre drenagem, uso, biodiversidade – treina a cidade para antecipar problemas, otimizar recursos e, fundamentalmente, se proteger.</p>
         </div>
     </section>
 
     <!-- SLIDE 5: IMPLEMENTAÇÃO -->
-    <section id="slide5" class="section bg-[#EAF2E3]">
-        <div class="text-center max-w-5xl fade-in">
-            <h2 class="text-sm font-bold uppercase tracking-widest text-[#6B8E23]">Implementação</h2>
-            <p class="mt-4 text-3xl md:text-5xl font-bold text-gray-800">Simples, barato e escalável.</p>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2">🎯 Público-Alvo</h3>
-                    <p class="text-gray-600">Cidadãos, empresas e escolas que adotam espaços. Prefeitura como consumidora dos dados.</p>
+    <section id="slide5" class="section bg-[var(--bg-accent)]">
+        <div class="container mx-auto max-w-6xl text-center animated-element">
+            <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Implementação</h2>
+            <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Um roadmap ágil para um impacto real.</p>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
+                    <h3 class="font-bold text-2xl mb-2">Fase 1: Piloto</h3>
+                    <p class="text-[var(--text-light)]">Lançar o app com 5 praças estratégicas. Engajar os primeiros "Guardiões" e validar a coleta de dados de drenagem.</p>
                 </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2">🛠️ Recursos-Chave</h3>
-                    <p class="text-gray-600">App web simples (parceria acadêmica), totens de QR Code (material reciclado), sensores de umidade (Fase 2).</p>
+                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
+                    <h3 class="font-bold text-2xl mb-2">Fase 2: Expansão</h3>
+                    <p class="text-[var(--text-light)]">Ampliar para toda a rede de espaços adotados. Integrar com sensores IoT de baixo custo para calibrar o modelo de dados.</p>
                 </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2">🧪 Teste Piloto</h3>
-                    <p class="text-gray-600">Iniciar com 5 praças já adotadas. Medir engajamento e qualidade dos dados por 3 meses.</p>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2">💰 Custo</h3>
-                    <p class="text-gray-600">Extremamente baixo. Foco no desenvolvimento do app, que pode ser um projeto de TCC, e na confecção dos totens.</p>
+                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
+                    <h3 class="font-bold text-2xl mb-2">Fase 3: Predição</h3>
+                    <p class="text-[var(--text-light)]">Utilizar o histórico de dados para criar modelos preditivos e dashboards para a Defesa Civil e Planejamento Urbano.</p>
                 </div>
             </div>
         </div>
@@ -176,53 +197,83 @@
 
     <!-- SLIDE 6: IMPACTO ESPERADO -->
     <section id="slide6" class="section">
-        <div class="text-center max-w-4xl fade-in">
-            <h2 class="text-sm font-bold uppercase tracking-widest text-[#6B8E23]">Impacto Esperado</h2>
-            <p class="mt-4 text-3xl md:text-5xl font-bold text-gray-800">Dados que geram economia e salvam vidas.</p>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="container mx-auto max-w-6xl text-center animated-element">
+            <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Impacto Quantificável</h2>
+            <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Inteligência que gera economia e salva vidas.</p>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center">
-                    <p class="text-5xl font-extrabold text-[#2C5F2D]">+50%</p>
-                    <p class="text-lg text-gray-600 mt-2">No engajamento de cidadãos com o programa de adoção no 1º ano.</p>
+                    <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="50">+50%</p>
+                    <p class="text-lg text-[var(--text-light)] mt-2">No engajamento cívico com espaços verdes no primeiro ano.</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-5xl font-extrabold text-[#2C5F2D]">-20%</p>
-                    <p class="text-lg text-gray-600 mt-2">Nos custos da prefeitura com vistorias e manutenções básicas.</p>
+                    <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="20">-20%</p>
+                    <p class="text-lg text-[var(--text-light)] mt-2">Nos custos públicos com vistorias e manutenções reativas.</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-5xl font-extrabold text-[#2C5F2D]">#1</p>
-                    <p class="text-lg text-gray-600 mt-2">Mapa de drenagem em tempo real, alimentado pela comunidade, para prevenir futuros desastres.</p>
+                    <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="1">#1</p>
+                    <p class="text-lg text-[var(--text-light)] mt-2">Mapa de vulnerabilidade hídrica em tempo real, co-criado pela comunidade.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SLIDE 7: ENCERRAMENTO -->
-    <section id="slide7" class="section bg-[#2C5F2D] text-white">
-        <div class="text-center max-w-4xl fade-in">
-            <h2 class="text-5xl md:text-7xl font-extrabold" style="letter-spacing: -0.03em;">
-                O futuro de Lajeado <span class="text-[#90EE90]">brota</span> das mãos de quem cuida.
+    <section id="night-sky" class="section">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="text-center max-w-5xl animated-element z-10">
+            <h2 class="final-quote text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                O futuro de Lajeado <span style="color: #a7c957;">brota</span> das mãos de quem cuida.
             </h2>
-            <p class="mt-8 text-xl text-gray-200">Vamos juntos transformar cada praça em um escudo para a nossa cidade.</p>
-            <p class="mt-4 text-xl font-bold text-white">Obrigado.</p>
+             <p class="mt-12 text-xl text-gray-300">Obrigado.</p>
         </div>
     </section>
 
-
     <script>
-        const sections = document.querySelectorAll('.fade-in');
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animated-element');
+            const counters = document.querySelectorAll('[data-target]');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        if (entry.target.contains(counters[0])) {
+                           counters.forEach(counter => {
+                                const target = +counter.getAttribute('data-target');
+                                const text = counter.innerText;
+                                const suffix = text.replace(/[0-9]/g, '');
+                                counter.innerText = `0${suffix}`;
+                                
+                                const updateCount = () => {
+                                    const count = +counter.innerText.replace(suffix, '');
+                                    const increment = target / 100;
+
+                                    if(count < target) {
+                                        counter.innerText = `${Math.ceil(count + increment)}${suffix}`;
+                                        setTimeout(updateCount, 20);
+                                    } else {
+                                        counter.innerText = `${target}${suffix}`;
+                                    }
+                                };
+                                updateCount();
+                           });
+                        }
+                        // observer.unobserve(entry.target); // Optional: stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
             });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
         });
     </script>
 </body>
