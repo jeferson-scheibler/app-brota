@@ -118,95 +118,52 @@
             z-index:1;
             animation:move-twink-back 200s linear infinite;
         }
-        .chevrons {
-        padding: 6px 0 0 0;
-        margin-left: -3px;
-        margin-top: 48px;
-        width: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        }
-
-        .chevrondown {
-        margin-top: -6px;
-        position: relative;
-        border: solid var(--color);
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        transform: rotate(45deg);
-        }
-
-        .chevrondown:nth-child(odd) {
-        animation: pulse54012 500ms ease infinite alternate;
-        }
-
-        .chevrondown:nth-child(even) {
-        animation: pulse54012 500ms ease infinite alternate 250ms;
-        }
-
-        @keyframes pulse54012 {
-        from {
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
             opacity: 0;
+            transition: opacity 1s ease-in-out 1s; /* Delay added */
         }
-
-        to {
-            opacity: 0.5;
-        }
+        .scroll-indicator.visible {
+            opacity: 1;
         }
         .scrolldown {
-        --color: white;
-        --sizeX: 30px;
-        --sizeY: 50px;
-        position: relative;
-        width: var(--sizeX);
-        height: var(--sizeY);
-        margin-left: var(sizeX / 2);
-        border: calc(var(--sizeX) / 10) solid var(--color);
-        border-radius: 50px;
-        box-sizing: border-box;
-        margin-bottom: 16px;
-        cursor: pointer;
+            --color: var(--text-dark);
+            --sizeX: 30px;
+            --sizeY: 50px;
+            position: relative;
+            width: var(--sizeX);
+            height: var(--sizeY);
+            border: calc(var(--sizeX) / 10) solid var(--color);
+            border-radius: 50px;
+            box-sizing: border-box;
+            cursor: pointer;
         }
-
         .scrolldown::before {
-        content: "";
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        width: 6px;
-        height: 6px;
-        margin-left: -3px;
-        background-color: var(--color);
-        border-radius: 100%;
-        animation: scrolldown-anim 2s infinite;
-        box-sizing: border-box;
-        box-shadow: 0px -5px 3px 1px #2a547066;
-        }
-
-        @keyframes scrolldown-anim {
-        0% {
-            opacity: 0;
+            content: "";
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            width: 6px;
             height: 6px;
+            margin-left: -3px;
+            background-color: var(--color);
+            border-radius: 100%;
+            animation: scrolldown-anim 2s infinite;
+            box-sizing: border-box;
         }
-
-        40% {
-            opacity: 1;
-            height: 10px;
+        @keyframes scrolldown-anim {
+            0% { opacity: 0; height: 6px; }
+            40% { opacity: 1; height: 10px; }
+            80% { transform: translate(0, 20px); height: 10px; opacity: 0; }
+            100% { height: 3px; opacity: 0; }
         }
-
-        80% {
-            transform: translate(0, 20px);
-            height: 10px;
-            opacity: 0;
-        }
-
-        100% {
-            height: 3px;
-            opacity: 0;
-        }
+        /* Hiding chevrons to use only the mouse animation */
+        .chevrons {
+           display: none;
         }
     </style>
 </head>
@@ -217,6 +174,9 @@
         <div class="text-center">
             <img src="logo-brota.svg" alt="Logotipo Brota" class="hero-title w-64 md:w-full mx-auto">
             <p class="mt-4 text-xl md:text-2xl text-gray-200 animated-element" style="transition-delay: 0.5s; text-shadow: 0px 2px 10px rgba(0,0,0,0.5);">Da marca da água, a semente da mudança.</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown" style="--color: white"></div>
         </div>
     </section>
 
@@ -241,11 +201,8 @@
                 </div>
             </div>
         </div>
-        <div class="scrolldown" style="--color: skyblue">
-            <div class="chevrons">
-                <div class="chevrondown"></div>
-                <div class="chevrondown"></div>
-            </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown"></div>
         </div>
     </section>
 
@@ -280,6 +237,9 @@
                 <p class="mt-6 text-lg text-[var(--text-light)]">Uma plataforma digital que transforma cidadãos em "cientistas cívicos". Através de um aplicativo gamificado, a zeladoria se converte em uma poderosa fonte de dados, criando um mapa dinâmico da saúde e dos riscos da nossa cidade.</p>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown"></div>
+        </div>
     </section>
 
     <!-- SLIDE 4: PROPOSTA DE VALOR -->
@@ -291,6 +251,9 @@
             <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Proposta de Valor</h2>
             <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">De ilhas de cuidado a uma rede de inteligência.</p>
             <p class="mt-6 text-lg text-[var(--text-light)]">Nossa inovação não é o cuidado em si, mas a <strong class="text-[var(--text-dark)]">conexão</strong>. Brota transforma cada praça em um nó de uma rede neural urbana, onde cada dado reportado – sobre drenagem, uso, biodiversidade – treina a cidade para antecipar problemas, otimizar recursos e, fundamentalmente, se proteger.</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown"></div>
         </div>
     </section>
 
@@ -314,6 +277,9 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown"></div>
+        </div>
     </section>
 
     <!-- SLIDE 6: IMPACTO ESPERADO -->
@@ -335,6 +301,9 @@
                     <p class="text-lg text-[var(--text-light)] mt-2">Mapa de vulnerabilidade hídrica em tempo real, co-criado pela comunidade.</p>
                 </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scrolldown"></div>
         </div>
     </section>
 
