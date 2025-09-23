@@ -118,6 +118,44 @@
             z-index:1;
             animation:move-twink-back 200s linear infinite;
         }
+        .chevrons {
+        padding: 6px 0 0 0;
+        margin-left: -3px;
+        margin-top: 48px;
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .chevrondown {
+        margin-top: -6px;
+        position: relative;
+        border: solid var(--color);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        }
+
+        .chevrondown:nth-child(odd) {
+        animation: pulse54012 500ms ease infinite alternate;
+        }
+
+        .chevrondown:nth-child(even) {
+        animation: pulse54012 500ms ease infinite alternate 250ms;
+        }
+
+        @keyframes pulse54012 {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 0.5;
+        }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -126,7 +164,7 @@
     <section id="slide1" class="section bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('inicial-brota.jpg');">
         <div class="text-center">
             <img src="logo-brota.svg" alt="Logotipo Brota" class="hero-title w-64 md:w-full mx-auto">
-            <p class="mt-4 text-xl md:text-2xl text-gray-200 animated-element" style="transition-delay: 0.5s; text-shadow: 0px 2px 10px rgba(0,0,0,0.5);">A semente de uma Lajeado mais forte e inteligente.</p>
+            <p class="mt-4 text-xl md:text-2xl text-gray-200 animated-element" style="transition-delay: 0.5s; text-shadow: 0px 2px 10px rgba(0,0,0,0.5);">Da marca da água, a semente da mudança.</p>
         </div>
     </section>
 
@@ -150,6 +188,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="chevrons">
+            <div class="chevrondown"></div>
+            <div class="chevrondown"></div>
         </div>
     </section>
 
