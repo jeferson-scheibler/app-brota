@@ -323,22 +323,32 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.animated-element');
+            const sections = document.querySelectorAll('.section');
             const counters = document.querySelectorAll('[data-target]');
 
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.3 // Trigger when 30% of the section is visible
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
+                    const scrollIndicator = entry.target.querySelector('.scroll-indicator');
+                    const animatedContent = entry.target.querySelectorAll('.animated-element');
+
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
+                        animatedContent.forEach(el => el.classList.add('is-visible'));
                         
-                        if (entry.target.contains(counters[0])) {
-                           counters.forEach(counter => {
+                        if(scrollIndicator) {
+                           scrollIndicator.classList.add('visible');
+                        }
+
+                        const sectionCounters = entry.target.querySelectorAll('[data-target]');
+                        if (sectionCounters.length > 0) {
+                           sectionCounters.forEach(counter => {
+                                if (counter.classList.contains('animated')) return;
+                                counter.classList.add('animated');
                                 const target = +counter.getAttribute('data-target');
                                 const text = counter.innerText;
                                 const suffix = text.replace(/[0-9]/g, '');
@@ -358,13 +368,25 @@
                                 updateCount();
                            });
                         }
-                        // observer.unobserve(entry.target); // Optional: stop observing once visible
+                    } else {
+                         if(scrollIndicator) {
+                            scrollIndicator.classList.remove('visible');
+                         }
                     }
                 });
             }, observerOptions);
 
-            animatedElements.forEach(el => {
-                observer.observe(el);
+            sections.forEach(section => {
+                observer.observe(section);
+                const scrollIndicator = section.querySelector('.scroll-indicator');
+                if (scrollIndicator) {
+                    scrollIndicator.addEventListener('click', () => {
+                        const nextSection = section.nextElementSibling;
+                        if (nextSection && nextSection.classList.contains('section')) {
+                            nextSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                }
             });
         });
     </script>
