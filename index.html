@@ -165,6 +165,48 @@
         .chevrons {
            display: none;
         }
+
+        .stat-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E9ECEF;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .slide-title {
+            position: absolute;
+            top: 3rem;
+            left: 3rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        .step-card {
+            background-color: var(--bg-accent);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #E9ECEF;
+        }
+        .step-icon {
+            background-color: var(--brand-green);
+            color: white;
+            height: 3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        #night-sky {
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+        .final-quote {
+            text-shadow: 0px 4px 20px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -178,9 +220,7 @@
                style="transition-delay: 0.5s;">
                Da marca da água, a semente da mudança.
             </p>
-        </div>
-        <div>
-            <p>Por Danton Y. Rutz e Jeferson Scheibler</p>
+            <p class="text-gray-300 mt-12 animated-element" style="transition-delay: 0.7s;">Por Danton Y. Rutz e Jeferson Scheibler</p>
         </div>
         <div class="scroll-indicator">
             <div class="scrolldown" style="--color: white"></div>
@@ -194,8 +234,8 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="animated-element">
                         <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">O Desafio</h2>
-                        <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Como transformar a reconstrução em resiliência?</p>
-                        <p class="mt-6 text-lg text-[var(--text-light)]">A tragédia revelou uma verdade: nossos espaços verdes são a primeira linha de defesa. Preservar é o alicerce, mas para construir um futuro seguro, precisamos de mais que boas intenções. Precisamos de inteligência.</p>
+                        <p class="text-3xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Como transformar a cicatriz em resiliência?</p>
+                        <p class="mt-4 text-lg text-[var(--text-light)] max-w-3xl mx-auto">Após a maior enchente de sua história, Lajeado enfrenta um desafio: reconstruir não apenas o que foi perdido, mas construir um futuro mais seguro. A boa vontade existe, mas falta a ferramenta para conectá-la à inteligência urbana.</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 animated-element" style="transition-delay: 0.2s;">
                         <div class="stat-card">
@@ -242,49 +282,12 @@
                     </div>
                 </div>
             </div>
-            <div class="animated-element" style="transition-delay: 0.2s;">
-                <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">A Solução</h2>
-                <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Brota: A cidade como um organismo vivo.</p>
-                <p class="mt-6 text-lg text-[var(--text-light)]">Uma plataforma digital que transforma cidadãos em "cientistas cívicos". Através de um aplicativo gamificado, a zeladoria se converte em uma poderosa fonte de dados, criando um mapa dinâmico da saúde e dos riscos da nossa cidade.</p>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scrolldown"></div>
-        </div>
-    </section>
-
-    <!-- SLIDE 4: PROPOSTA DE VALOR -->
-    <section id="slide4" class="section">
-        <div class="text-center max-w-4xl animated-element">
-            <div class="icon-feature mx-auto mb-6">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12c0-5.25-4.25-9.5-9.5-9.5S2.5 6.75 2.5 12s4.25 9.5 9.5 9.5"/><path d="M12 21.5c-3.14-.14-5.5-2.82-5.5-5.96 0-3.3 2.69-5.98 6-5.98s6 2.68 6 5.98c0 3.14-2.36 5.82-5.5 5.96"/><path d="M12 2.5C8.86 2.64 6.5 5.32 6.5 8.46c0 3.3 2.69 5.98 6 5.98s6-2.68 6-5.98C18.5 5.32 16.14 2.64 13 2.5"/><path d="M2.5 12c5.25 0 9.5 4.25 9.5 9.5M21.5 12c-5.25 0-9.5-4.25-9.5-9.5"/></svg>
-            </div>
-            <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Proposta de Valor</h2>
-            <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">De ilhas de cuidado a uma rede de inteligência.</p>
-            <p class="mt-6 text-lg text-[var(--text-light)]">Nossa inovação não é o cuidado em si, mas a <strong class="text-[var(--text-dark)]">conexão</strong>. Brota transforma cada praça em um nó de uma rede neural urbana, onde cada dado reportado – sobre drenagem, uso, biodiversidade – treina a cidade para antecipar problemas, otimizar recursos e, fundamentalmente, se proteger.</p>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scrolldown"></div>
-        </div>
-    </section>
-
-    <!-- SLIDE 5: IMPLEMENTAÇÃO -->
-    <section id="slide5" class="section bg-[var(--bg-accent)]">
-        <div class="container mx-auto max-w-6xl text-center animated-element">
-            <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Implementação</h2>
-            <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Um roadmap ágil para um impacto real.</p>
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
-                    <h3 class="font-bold text-2xl mb-2">Fase 1: Piloto</h3>
-                    <p class="text-[var(--text-light)]">Lançar o app com 5 praças estratégicas. Engajar os primeiros "Guardiões" e validar a coleta de dados de drenagem.</p>
-                </div>
-                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
-                    <h3 class="font-bold text-2xl mb-2">Fase 2: Expansão</h3>
-                    <p class="text-[var(--text-light)]">Ampliar para toda a rede de espaços adotados. Integrar com sensores IoT de baixo custo para calibrar o modelo de dados.</p>
-                </div>
-                <div class="p-8 rounded-lg transition hover:bg-white hover:shadow-lg">
-                    <h3 class="font-bold text-2xl mb-2">Fase 3: Predição</h3>
-                    <p class="text-[var(--text-light)]">Utilizar o histórico de dados para criar modelos preditivos e dashboards para a Defesa Civil e Planejamento Urbano.</p>
+            <div class="container mx-auto max-w-6xl text-center animated-element">
+                <img src="https://i.imgur.com/k2G81Ar.png" alt="Logotipo Brota" class="h-16 mx-auto mb-4">
+                <p class="text-3xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Uma plataforma de zeladoria inteligente.</p>
+                <p class="mt-4 text-lg text-[var(--text-light)] max-w-3xl mx-auto">Brota é um ecossistema digital que gamifica o cuidado com os espaços verdes, transformando cidadãos e empresas em uma rede de "sensores cívicos" que monitora a saúde da cidade em tempo real.</p>
+                <div class="mt-12">
+                    <img src="https://i.imgur.com/gK9qQ6n.png" alt="Mockup do aplicativo Brota em um celular" class="max-w-xs md:max-w-sm mx-auto rounded-3xl shadow-2xl">
                 </div>
             </div>
         </div>
@@ -293,31 +296,55 @@
         </div>
     </section>
 
-    <!-- SLIDE 6: IMPACTO ESPERADO -->
-    <section id="slide6" class="section">
-        <div class="section-content container mx-auto max-w-6xl text-center animated-element">
-            <div>
-                <h2 class="text-base font-bold uppercase tracking-widest text-[var(--brand-highlight)]">Impacto Quantificável</h2>
-                <p class="mt-4 text-4xl md:text-5xl font-bold text-[var(--text-dark)] leading-tight">Inteligência que gera economia e salva vidas.</p>
-                <p class="text-md text-gray-500 italic mt-2">(Metas e projeções do projeto)</p>
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center">
-                        <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="50">+50%</p>
-                        <p class="text-lg text-[var(--text-light)] mt-2">No engajamento cívico com espaços verdes no primeiro ano.</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="20">-20%</p>
-                        <p class="text-lg text-[var(--text-light)] mt-2">Nos custos públicos com vistorias e manutenções reativas.</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-6xl font-extrabold text-[var(--brand-green)]" data-target="1">#1</p>
-                        <p class="text-lg text-[var(--text-light)] mt-2">Mapa de vulnerabilidade hídrica em tempo real, co-criado pela comunidade.</p>
-                    </div>
+    <!-- SLIDE 4: COMO FUNCIONA -->
+    <section id="slide-4" class="slide bg-white">
+        <h2 class="slide-title">3. Como Funciona</h2>
+        <div class="container mx-auto max-w-6xl animated-element">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="step-card">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2">ADOTE E CUIDE</h3>
+                    <p class="text-[var(--text-light)]">Cidadãos ou empresas ("Guardiões") adotam um espaço verde e se comprometem com sua zeladoria.</p>
+                </div>
+                 <div class="step-card">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2">REPORTE DADOS</h3>
+                    <p class="text-[var(--text-light)]">Pelo app, cumprem missões gamificadas, reportando dados cruciais: nível de drenagem, lixo, biodiversidade.</p>
+                </div>
+                 <div class="step-card">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 8v0"></path><path d="M20.34 17.52a8.99 8.99 0 10-14.7-5.58"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-2">GERE INTELIGÊNCIA</h3>
+                    <p class="text-[var(--text-light)]">A plataforma processa os dados e cria um mapa de calor, gerando alertas e insights para o poder público.</p>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scrolldown"></div>
+    </section>
+
+    <!-- SLIDE 5: IMPACTO E VIABILIDADE -->
+    <section id="slide-5" class="slide bg-[var(--bg-accent)]">
+        <h2 class="slide-title">4. Impacto e Viabilidade</h2>
+        <div class="container mx-auto max-w-6xl animated-element">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">Projeções de Impacto</h3>
+                    <ul class="space-y-3 text-lg text-[var(--text-light)]">
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> <strong>+50%</strong> de engajamento cívico no primeiro ano.</li>
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> <strong>-20%</strong> nos custos de manutenção reativa para a prefeitura.</li>
+                        
+                        <!-- LINHA REFEITA E REALISTA -->
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> Criação do <strong>primeiro observatório cívico</strong> da resiliência urbana da região, fortalecendo a parceria público-privada.</li>
+
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">Viabilidade de Baixo Custo</h3>
+                    <ul class="space-y-3 text-lg text-[var(--text-light)]">
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> <strong>Protótipo Simples:</strong> App pode ser desenvolvido como projeto de extensão (parceria com Univates).</li>
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> <strong>Recursos-Chave:</strong> Dados abertos, voluntariado e parcerias público-privadas existentes.</li>
+                        <li class="flex items-start"><span class="text-[var(--brand-highlight)] mr-2">✔</span> <strong>Implementação em Fases:</strong> Projeto piloto em 5 praças para validar o modelo com custo mínimo.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
